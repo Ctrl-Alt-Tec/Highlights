@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Source+Serif+Pro:600&display=swap" rel="stylesheet">
+
+
+    <title>Nuevo diploma</title>
+    <style>
+        body, html{
+            font-family: 'Source Sans Pro', sans-serif;
+            background: rgb(200,200,200);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            align-content: center;
+            height: 100%;
+            flex-direction: column;
+        }
+        #diploma{
+            background-color: white;
+            width: 1100px;
+            height: 850px;
+            padding: 60px;
+            box-sizing: border-box;
+            display: flex;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+        }
+        
+        
+        #border{
+            border: 15px solid rgb(0,122,192);
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            padding: 15px;
+        }
+            #border #logocont{
+                width: 100%;
+                display: flex;
+                justify-content: center;
+            }
+
+                #border #logocont img{
+                    height: 100px;
+                }
+
+        #border #title, #border #content{
+            padding: 30px;
+        }
+
+
+        #border #title{
+            color: rgb(0,122,192);
+            font-weight: 600;
+            writing-mode:vertical-lr;
+            transform: rotate(180deg);
+            font-size: 60px;
+            text-align: center;
+        }
+        #content{
+            flex:1;
+        }
+        span{
+            font-size: 30px;
+            color: rgb(100,100,100);
+            line-height: 1.5;
+        }
+        #name{
+            font-family: 'Source Serif Pro', serif;
+            font-size: 70px;
+        }
+        #concept{
+            font-weight: 700;
+            font-size: 40px;
+            line-height: 1.5;
+        }
+        #description{
+            font-size: 20px;
+        }
+        #date{
+            padding-top: 10px;
+            font-size: 20px;
+            text-align: right;
+        }
+        @media print {
+            body>*{display: none}
+            #diploma{display: flex;}
+        }
+
+        .fab{
+            position: fixed;
+            height: 80px;
+            width: 80px;
+            background: black;
+            border-radius: 40px;
+            position: fixed;
+            margin: 16px;
+            bottom: 0;
+            right: 0;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+        }
+    </style>
+</head>
+<body>
+    <div id="diploma">
+        <div id="border">
+
+            <div id="logocont">
+                <img src="https://ctrl-alt-tec.hackclub.com/img/logo-block.png">
+            </div>
+
+            <div id="title">RECONOCIMIENTO</div>
+            <div id="content">
+                <span>Se otorga a</span>
+                <div id="name" contenteditable="true">Nombre Apellido Apellido</div>
+                <span>Por</span>
+                <div id="concept" contenteditable="true">CONCEPTO</div>
+                <hr>
+                <div id="description" contenteditable="true">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur optio, ducimus ea doloremque nesciunt aperiam, voluptas minima nobis quam consequatur modi earum, vel suscipit autem porro quis natus ipsum molestias!
+                </div>
+                <div id="date">A 21 de enero del 2020</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fab" id="print">p</div>
+
+    <script>
+        document.querySelector("#diploma #date").innerHTML = "Ciudad de México, a " +new Date().toLocaleDateString()
+        document.querySelector("#print").addEventListener('click', ()=>{window.print()})
+    </script>
+</body>
+</html>
